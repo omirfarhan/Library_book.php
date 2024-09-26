@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Move uploaded files to the respective directories
     if (move_uploaded_file($_FILES["pdf"]["tmp_name"], $pdfTargetFile) && move_uploaded_file($_FILES["image"]["tmp_name"], $imageTargetFile)) {
-        $sql = "INSERT INTO books (book_name, book_picture, book_pdf) VALUES ('$name', '$pdfFileName', '$imageFileName')";
+        $sql = "INSERT INTO books (book_name, book_pdf, book_picture) VALUES ('$name', '$pdfFileName', '$imageFileName')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Upload successful!";
